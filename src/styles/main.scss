@@ -1,9 +1,15 @@
+$cell-size: 100px;
+$gap: 1px;
+$padding: 10px;
+$border-width: 1;
+
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  margin: 0 0 0 10px;
+  margin: 0;
 }
 
 @for $days from 1 through 31 {
@@ -27,7 +33,7 @@ $calendar_weekend: (
 @each $weekday, $col in $calendar_weekend {
   .calendar--start-day-#{$weekday} {
     .calendar__day:nth-child(1) {
-      margin-left: (($col - 1) * 101px);
+      margin-left: (($col - 1) * ($cell-size + $gap));
     }
   }
 }
@@ -48,20 +54,19 @@ $calendar_weekend: (
 
   .calendar__days {
     display: flex;
-    width: 716px;
+    width: 7 * $cell-size + 6 * $gap;
     flex-wrap: wrap;
-    gap: 1px;
-    padding: 10px;
+    gap: $gap;
 
     .calendar__day {
       display: flex;
       align-items: center;
       justify-content: center;
       box-sizing: border-box;
-      width: 100px;
-      height: 100px;
+      width: $cell-size;
+      height: $cell-size;
       background-color: #eee;
-      border: 1px solid black;
+      border: $border-width solid black;
       transition: all 0.5s;
 
       &:hover {
