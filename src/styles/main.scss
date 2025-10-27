@@ -1,8 +1,7 @@
 $cell-size: 100px;
 $gap: 1px;
 $padding: 10px;
-$border-width: 1;
-
+$border-width: 1px;
 
 body {
   display: flex;
@@ -68,6 +67,7 @@ $calendar_weekend: (
       background-color: #eee;
       border: $border-width solid black;
       transition: all 0.5s;
+      padding: 10px;
 
       &:hover {
         cursor: pointer;
